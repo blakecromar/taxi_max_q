@@ -31,10 +31,10 @@ def frame(env, reward, samp_reward, step, episode, show_episodes):
         sleep(2.000)
     
     # Individual episode rules
-    if episode == show_episodes[-3]:
+    if episode == show_episodes[0]:
         statement = ""
         delay = 0.001   
-    elif episode == show_episodes[-2]:
+    elif episode == show_episodes[1]:
         statement = ""
         delay = 0.100
     else:
@@ -83,7 +83,7 @@ def interact(env, agent, num_episodes=20000, window=100):
     # initialize monitor for most recent rewards
     samp_rewards = deque(maxlen=window)
     
-    show_episodes = [1, 500, 20000]
+    show_episodes = [1, 500, *range(19991, 20001)]
     
     step = 0
     # for each episode
